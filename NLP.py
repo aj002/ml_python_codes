@@ -27,3 +27,9 @@ for i in range(0, 1000):
     """ it is used to remove irrelevent words like 'this' and also does stemming"""
     review = ' '.join(review)
     corpus.append(review)
+    
+#Creeating the Bag of Words model
+from sklearn.feature_extraction.text import CountVectorizer
+cv = CountVectorizer(max_features = 1500)
+X = cv.fit_transform(corpus).toarray()
+y = dataset.iloc[:, 1].values
